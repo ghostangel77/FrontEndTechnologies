@@ -13,17 +13,18 @@ namespace FrontEndTechnologies
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app)
         {
             app.UseIISPlatformHandler();
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
         }
 
         // Entry point for the application.
