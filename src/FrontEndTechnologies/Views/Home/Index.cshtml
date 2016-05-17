@@ -1,3 +1,9 @@
-﻿<h1>
-    Hello MVC!!!
+﻿@model FrontEndTechnologies.ViewModels.PersonViewModel
+<h1>
+    Persons
 </h1>
+@Html.LabelFor(p=>p.Name)
+@Html.TextBoxFor(p => p.Name)
+
+@Html.LabelFor(p => p.LastName)
+@Html.TextBoxFor(p => p.LastName)
