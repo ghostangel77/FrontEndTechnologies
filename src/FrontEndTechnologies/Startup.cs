@@ -15,23 +15,11 @@ namespace FrontEndTechnologies
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            services.AddSingleton<IGreeter, Greeter>();
         }
 
         
         public void Configure(IApplicationBuilder app)
         {
-            app.Use(async (context, next) =>
-            {
-                IGreeter greeter = context.ApplicationServices.GetService<IGreeter>();
-                greeter.Greet(":::::::::::::: Hello from App Services=) ::::::::::::::");
-                await next.Invoke();
-            });
-
-            app.UseMiddleware<MyMiddleware>();
-
-
             app.UseIISPlatformHandler();
 
             app.UseMvc();
