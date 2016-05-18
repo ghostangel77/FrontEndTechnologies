@@ -14,5 +14,10 @@ namespace FrontEndTechnologies.Controllers
             //throw new Exception("test"); //Just to test the environment variables
             return View(new PersonViewModel { Name = "Diego", LastName = "Torres" });
         }
+
+        public IActionResult JspmExample()
+        {
+            return View();
+        }
     }
 }
