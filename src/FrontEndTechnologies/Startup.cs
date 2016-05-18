@@ -12,6 +12,12 @@ namespace FrontEndTechnologies
 {
     public class Startup
     {
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public Startup(IHostingEnvironment hostingEnvironment)
+        {
+            this._hostingEnvironment = hostingEnvironment;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -20,13 +26,16 @@ namespace FrontEndTechnologies
         
         public void Configure(IApplicationBuilder app)
         {
+
+            if (_hostingEnvironment.IsDevelopment())
+                app.UseDeveloperExceptionPage();
+
             app.UseIISPlatformHandler();
 
             app.UseMvc();
             app.UseMvcWithDefaultRoute();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-
         }
 
         // Entry point for the application.

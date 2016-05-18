@@ -11,6 +11,7 @@ namespace FrontEndTechnologies.Controllers
     {
         public IActionResult Index()
         {
+            //throw new Exception("test"); //Just to test the environment variables
             return View(new PersonViewModel { Name = "Diego", LastName = "Torres" });
         }
     }

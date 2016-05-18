@@ -23,6 +23,14 @@
 </div>
 
 @section Scripts{
-    <script src="~/app/shared/plugins/notifier.js"></script>
-    <script src="~/app/shared/core.js"></script>
+    <environment names="Development">
+        @*<script asp-src-include="~/app/shared/**/*.js"></script>*@@*It works but it could throw exception due to the orden of the scripts*@
+        <script asp-src-include="~/app/shared/plugins/notifier.js"></script>
+        <script asp-src-include="~/app/shared/core.js"></script>
+    </environment>
+    <environment names="Staging, Production">
+        @*<script asp-src-include="~/app/dist/**/*.js"></script>*@@*It works but it could throw exception due to the orden of the scripts*@
+        <script asp-src-include="~/app/dist/plugins/notifier.min.js"></script>
+        <script asp-src-include="~/app/dist/core.min.js"></script>
+    </environment>
 }
