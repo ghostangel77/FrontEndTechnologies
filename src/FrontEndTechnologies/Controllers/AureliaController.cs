@@ -12,5 +12,10 @@ namespace FrontEndTechnologies.Controllers
         {
             return View();
         }
+
+        public IActionResult Modules()
+        {
+            return View();
+        }
     }
 }
