@@ -1,21 +1,13 @@
 ﻿<template>
-    <header class="navbar navbar-inverse navbar-static-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">My Company</a>
-            </div>
-        </div>
-    </header>
+    <require from="../shared/layout/left-menu"></require>
+    <require from="../shared/layout/top-header"></require>
 
+    <top-header></top-header>
 
     <section class="container-fluid">
         <div class="row">
             <div class="col-xs-3 col-md-2">
-                <ul class="nav nav-sidebar">
-                    <li repeat.for="row of router.navigation">
-                        <a href.bind="row.href"><i class.bind="row.config.icon"></i> ${row.title}</a>
-                    </li>
-                </ul>
+                <left-menu proprouter.bind="router"></left-menu>
             </div>
             <div class="col-xs-9 col-md-10">
                 <div class="content">

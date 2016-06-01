@@ -1,0 +1,7 @@
+﻿<template>
+    <ul class="nav nav-sidebar">
+        <li repeat.for="row of proprouter.navigation">
+            <a href.bind="row.href"><i class.bind="row.config.icon"></i> ${row.title}</a>
+        </li>
+    </ul>
+</template>
