@@ -14,6 +14,7 @@ export class TopHeader {
     }
 
 
+
     //*** At this point in time, the view has also been created and both the view-model and the view are 
     //*** connected to their controller. The created callback will recieve the instance of the "owningView". 
     //*** This is the view that the component is declared inside of. If the component itself has a view, 
