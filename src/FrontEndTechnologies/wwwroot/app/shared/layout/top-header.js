@@ -1,8 +1,16 @@
-﻿
+﻿import {bindable, inject} from 'aurelia-framework';
+
+//@bindable('proprouter')
+@bindable({name:'company', defaultValue:''})
 export class TopHeader {
     constructor(){
-        this.company = 'My Company';
+        //this.company2 = 'My Company';
         console.info('constructor', arguments);
+    }
+
+
+    companyChanged(){
+        console.info('changed', arguments);
     }
 
 
