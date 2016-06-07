@@ -1,0 +1,31 @@
+﻿<template>
+    <h1 class="row">
+        ${title}
+    </h1>
+
+
+    <div class="form-horizontal col-xs-12 col-m-6 col-lg-3">
+        <div class="form-group">
+            <span>First Name</span>
+            <div class="controls">
+                <input type="text" class="form-control" value.bind="person.firstName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <span>Last Name</span>
+            <div class="controls">
+                <input type="text" class="form-control" value.bind="person.lastName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <span>Phone</span>
+            <div class="controls">
+                <input type="tel" class="form-control" value.bind="person.phone" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button click.trigger="save()" class="btn btn-primary pull-right">Save</button>
+        </div>
+    </div>
+</template>
