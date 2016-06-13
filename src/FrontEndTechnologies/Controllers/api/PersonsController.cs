@@ -32,6 +32,7 @@ namespace FrontEndTechnologies.Controllers.api
         [HttpGet("{id}")]
         public Person Get(int id)
         {
+            //throw new Exception("Test");
             return _personList.FirstOrDefault(p => p.Id.Equals(id));
         }
 

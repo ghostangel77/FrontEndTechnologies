@@ -13,7 +13,7 @@ export class personForm{
     activate(params){
         this.service.getPersonById(params.id)
             .then(person => {
-                this.person  = person;
+                this.person = person;
             });
         this.isEdit = params.isEdit;
         this.title = this.isEdit ? "Edit Person" : "Add Person";

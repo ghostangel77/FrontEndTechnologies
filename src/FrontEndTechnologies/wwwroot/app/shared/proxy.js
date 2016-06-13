@@ -6,14 +6,25 @@ export class Proxy{
     constructor(client){
         this.client = client;
         this.client.configure(config => {
-            console.info(arguments)
             config
               .withBaseUrl('/api/')
               .withDefaults({
                   headers: {
                       'Accept': 'application/json'
                   }
-              });
+              })
+            .withInterceptor({
+                request(request) {
+                    console.info(`Requesting ${request.method} ${request.url}`);
+                    return request;
+                },
+                response(response) {
+                    console.info(`Received ${response.status} ${response.url}`, response);
+                    if(!response.ok)
+                        console.error('Response Error: ', response);
+                    return response;
+                }
+            });
         });
     }
 
