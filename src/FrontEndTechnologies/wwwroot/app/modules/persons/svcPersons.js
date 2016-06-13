@@ -1,15 +1,17 @@
-﻿export class SvcPersons{
-    constructor(){
+﻿import {inject} from 'aurelia-framework';
+import {Proxy} from '/app/shared/proxy';
+
+@inject(Proxy)
+export class SvcPersons{
+    constructor(proxy){
+        this.proxy = proxy;
     }
 
     getPersonsList(){
-       return [
-            {id:1, firstName:"Diego", lastName:"Torres", phone:"234-234-234"},
-            {id:2, firstName:"Juan", lastName:"Perez", phone:"123-456-789"}
-        ];
+        return this.proxy.get('persons');
     }
 
     getPersonById(id){
-        return _.findWhere(this.getPersonsList(),{id:Number(id)});
+        return this.proxy.get('persons/'+id);
     }
 }

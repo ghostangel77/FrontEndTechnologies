@@ -7,6 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using FrontEndTechnologies.CustomServices;
+using Newtonsoft.Json.Serialization;
 
 namespace FrontEndTechnologies
 {
@@ -20,7 +21,12 @@ namespace FrontEndTechnologies
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ContractResolver =
+                    new CamelCasePropertyNamesContractResolver();
+            });
         }
 
         
