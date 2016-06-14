@@ -14,16 +14,15 @@ export class personForm{
         this.service.getPersonById(params.id)
             .then(person => {
                 this.person = person;
-            });
+            })
+            .catch(error => console.error('Error:', error));
         this.isEdit = params.isEdit;
         this.title = this.isEdit ? "Edit Person" : "Add Person";
     }
 
     save(){
-        if(this.isEdit){
-            
-        }else {
-
-        }
+        this.service.save(this.isEdit, this.person)
+        .then(() => console.info('The Person was saved successfully'))
+        .catch(error => console.error('Error:', error));
     }
 }

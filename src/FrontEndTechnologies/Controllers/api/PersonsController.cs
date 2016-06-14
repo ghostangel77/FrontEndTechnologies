@@ -37,9 +37,14 @@ namespace FrontEndTechnologies.Controllers.api
         }
 
         // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
+        [HttpPost("Edit")]
+        public void Edit([FromBody]Person person)
         {
+            Person p = null;
+            p = _personList.FirstOrDefault(item => item.Id.Equals(person.Id));
+            p.FirstName = person.FirstName;
+            p.LastName = person.LastName;
+            p.Phone = person.Phone;
         }
 
         // PUT api/values/5

@@ -14,4 +14,9 @@ export class SvcPersons{
     getPersonById(id){
         return this.proxy.get('persons/'+id);
     }
+
+    save(isEdit, data){
+        let url = 'persons/' + (isEdit ? 'Edit' : 'Add');
+        return this.proxy.post(url, data);
+    }
 }
