@@ -1,10 +1,12 @@
 ﻿import {inject} from 'aurelia-framework';
 import {SvcPersons} from './svcPersons';
+import {RouterService} from '/app/shared/routerService';
 
-@inject(SvcPersons)
+@inject(SvcPersons, RouterService)
 export class personForm{
-    constructor(service){
+    constructor(service, router){
         this.service = service;
+        this.router = router;
         this.person = {};
         this.isEdit = false;
         this.title = '';
@@ -22,7 +24,10 @@ export class personForm{
 
     save(){
         this.service.save(this.isEdit, this.person)
-        .then(() => console.info('The Person was saved successfully'))
+        .then(() => {
+            console.info('The Person was saved successfully');
+            this.router.navigateToRoute('persons');
+        })
         .catch(error => console.error('Error:', error));
     }
 }

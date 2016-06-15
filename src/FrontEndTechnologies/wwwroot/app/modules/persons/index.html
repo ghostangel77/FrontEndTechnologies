@@ -12,7 +12,7 @@
                 <td>${person.firstName}</td>
                 <td>${person.lastName}</td>
                 <td>${person.phone}</td>
-                <td><a href="/Aurelia/Modules/#/editPerson/${person.id}" class="btn btn-default">Edit</a></td>
+                <td><button click.trigger="editPerson(person.id)" class="btn btn-default">Edit</button></td>
             </tr>
         </tbody>
     </table>

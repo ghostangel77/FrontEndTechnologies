@@ -1,10 +1,18 @@
 ﻿import {inject} from 'aurelia-framework';
 import {SvcPersons} from './svcPersons';
+import {RouterService} from '/app/shared/routerService';
 
-@inject(SvcPersons)
+@inject(SvcPersons, RouterService)
 export class Index{
-    constructor(service){
+    constructor(service, router){
         this.service = service;
-        this.persons = this.service.getPersonsList();
+        this.router = router;
+        this.service.getPersonsList()
+            .then(persons => this.persons = persons)
+            .catch(error => this.persons = []);
+    }
+
+    editPerson(id){
+        this.router.navigateToRoute('editPerson', {id: id});
     }
 }
