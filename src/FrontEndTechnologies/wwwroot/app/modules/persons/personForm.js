@@ -13,11 +13,13 @@ export class personForm{
     }
 
     activate(params){
-        this.service.getPersonById(params.id)
-            .then(person => {
-                this.person = person;
-            })
-            .catch(error => console.error('Error:', error));
+        if(params.isEdit){
+            this.service.getPersonById(params.id)
+                .then(person => {
+                    this.person = person;
+                })
+                .catch(error => console.error('Error:', error));
+        }
         this.isEdit = params.isEdit;
         this.title = this.isEdit ? "Edit Person" : "Add Person";
     }

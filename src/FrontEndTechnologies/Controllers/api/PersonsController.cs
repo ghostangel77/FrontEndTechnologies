@@ -47,6 +47,13 @@ namespace FrontEndTechnologies.Controllers.api
             p.Phone = person.Phone;
         }
 
+        [HttpPost("Add")]
+        public void Add([FromBody]Person person)
+        {
+            if (person != null)
+                _personList.Add(person);
+        }
+
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
